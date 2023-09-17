@@ -102,10 +102,11 @@ class BFS:
     def draw_blocks(self):
         mouse_click = pygame.mouse.get_pressed()
         mouse_pos = pygame.mouse.get_pos()
-        if mouse_click[0]:
-            self.grid[int(mouse_pos[1] // nodes_size)][int(mouse_pos[0] // nodes_size)].block = True
-        elif mouse_click[2]:
-            self.grid[int(mouse_pos[1] // nodes_size)][int(mouse_pos[0] // nodes_size)].block = False
+        if 0 < mouse_pos[0] < screen_size and 0 < mouse_pos[1] < screen_size:
+            if mouse_click[0]:
+                self.grid[int(mouse_pos[1] // nodes_size)][int(mouse_pos[0] // nodes_size)].block = True
+            elif mouse_click[2]:
+                self.grid[int(mouse_pos[1] // nodes_size)][int(mouse_pos[0] // nodes_size)].block = False
 
 
 bfs = BFS()
